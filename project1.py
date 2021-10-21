@@ -10,8 +10,28 @@ Date:
 
 """
 SelectionSort
+
+@listToSort : original list to be sorted
+@return : sorted list
+
+Time complexity :　O(n2) for all cases
 """
 def SelectionSort(listToSort):
+    # loop over all elments in list
+    for i in range(len(listToSort)):
+        # set the current (first in unsorted list) element as min
+        min = listToSort[i]
+        # loop over all the unsorted (following) list
+        for j in range(i+1, len(listToSort)):
+            # if find a new min, swap it with the first element in unsorted list
+            if min > listToSort[j]:
+                # swap min and new found min
+                temp = min
+                min = listToSort[j]
+                listToSort[j] = temp
+        # set the first element in unsorted list to be the minimal of the rest
+        listToSort[i] = min
+
     return listToSort
 
 """
@@ -57,21 +77,21 @@ if __name__ == "__main__":
     print()
     testingSuite(SelectionSort)
     print()
-    print('Testing Insertion Sort')
-    print()
-    testingSuite(InsertionSort)
-    print()
-    print('Testing Bubble Sort')
-    print()
-    testingSuite(BubbleSort)
-    print()
-    print('Testing Merge Sort')
-    print()
-    testingSuite(MergeSort)
-    print()
-    print('Testing Quick Sort')
-    print()
-    testingSuite(QuickSort)
+    # print('Testing Insertion Sort')
+    # print()
+    # testingSuite(InsertionSort)
+    # print()
+    # print('Testing Bubble Sort')
+    # print()
+    # testingSuite(BubbleSort)
+    # print()
+    # print('Testing Merge Sort')
+    # print()
+    # testingSuite(MergeSort)
+    # print()
+    # print('Testing Quick Sort')
+    # print()
+    # testingSuite(QuickSort)
     print()
     print('UNSORTED measureTime')
     print()
