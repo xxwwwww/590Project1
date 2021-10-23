@@ -40,18 +40,62 @@ def SelectionSort(listToSort):
 InsertionSort
 """
 def InsertionSort(listToSort):
+ len=len(listToSort)
+    #loop over all elements in list
+    for i in range (0,len-1):
+        #loop over the already sorted list
+        for j in range (0,i):
+            #comoare the new one with each element in the already sorted list,inssert it 
+        if(listToSort[i]<listToSort[j]):
+            temp=listToSort[j]
+            listToSort[j]=listToSort[i]
+            listToSort[j+1]=temp     
     return listToSort
 
 """
 BubbleSort
 """
 def BubbleSort(listToSort):
+    len=len(listToSort)
+    #one loop find the biggest one in list,loop for len times to arrange the list 
+    for j in range (1,len):
+        #loop over all elements in list,find the biggest one
+        for i in range(0,len-1):
+            #from the first elemnt,compare with the next one,put the small one to the front 
+            if(listToSort[i]>listToSort[i+1]):
+                temp=listToSort[i]
+                listToSort[i]=listToSort[i+1]
+                listToSort[i+1]=temp
     return listToSort
 
 """
 MergeSort
 """
+def merge(left,right,listToSort):
+    #i indicate the location it point to in the left list;
+    #j indicate the location it point to in the right list;
+    i,j = 0,0    
+    while i+j<len(listToSort):
+        #if() means the element in the left is the small one
+        if j==len(right) or (i<len(left) and left[i]<right[j]):
+            listToSort[i+j] = left[i]
+            i += 1
+        else:
+            listToSort[i+j] = right[j]
+            j += 1
 def MergeSort(listToSort):
+    len=len(listToSort)
+    if len < 2:
+    return
+    #split the list in two parts
+    num=int(len/2)
+    left = listToSort[0:num]) 
+    right = listToSort[num:len])
+    #recursive call,split the sublists in two parts,repeat until every elements was seperated  
+    MergeSort(left)
+    MergeSort(right)
+    #call the function,merge     
+    merge(left,right,listToSort)
     return listToSort
 
 """
